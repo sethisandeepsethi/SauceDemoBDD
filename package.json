@@ -1,0 +1,33 @@
+{
+  "name": "saucedemo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "rm -rf results && mkdir -p results",
+    "clean:reportsWindows": "rm -rf results && mkdir -p results",
+    "generate:reports": "npx ts-node ./src/helper/reportGenerator.ts",
+    "pretest": "npm run clean:reports",
+    "posttest": "npm run generate:reports",
+    "execute:script": "cross-env ENV=prod cucumber-js test",
+    "test": "npm run execute:script || npm run posttest",
+    "execute:script:rerun": "cucumber-js -p rerun @rerun.txt",
+    "test:rerun": "npm run execute:script:rerun || npm run generate:reports"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.9.0",
+    "@playwright/test": "^1.46.0",
+    "@types/node": "^22.2.0",
+    "allure-commandline": "^2.30.0",
+    "allure-playwright": "^3.0.0-beta.10",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "mkdirp": "^3.0.1",
+    "multiple-cucumber-html-reporter": "^3.7.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2"
+  }
+}
