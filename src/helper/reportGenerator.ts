@@ -1,8 +1,8 @@
 const report = require("multiple-cucumber-html-reporter");
 
 report.generate({
-  jsonDir: "./results/reports",
-  reportPath: "./results/reports",
+  jsonDir: "./test-results/reports",
+  reportPath: "./test-results/reports",
   openReportInBrowser: true,
   disableLog: true,
   metadata: {

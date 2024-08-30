@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import BasePage from './BasePage';
+import { fixtures } from '../src/test/hooks/pageFixtures';
 
 export class ProductsPage extends BasePage {
     readonly page: Page;
@@ -41,6 +42,7 @@ export class ProductsPage extends BasePage {
 
     async gotoCartPage(){
         await this.waitForElementVisible(this.lbl_ShoppingCartItemCountBadge);
+        fixtures.logger.info('Clicking cart item count badge in Products page')
         await this.lbl_ShoppingCartItemCountBadge.click()
     }
 

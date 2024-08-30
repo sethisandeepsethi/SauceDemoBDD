@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import BasePage from './BasePage';
+import { fixtures } from '../src/test/hooks/pageFixtures';
 
 export class OverviewPage extends BasePage {
     readonly page: Page;
@@ -18,6 +19,7 @@ export class OverviewPage extends BasePage {
     }
 
     async finishCheckout(){
+        fixtures.logger.info('Clicking Finish button in Overview page')
         await this.clickElement(this.btn_Finish);
     }
 

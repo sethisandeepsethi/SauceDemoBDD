@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "clean:reports": "rm -rf results && mkdir -p results",
-    "clean:reportsWindows": "rm -rf results && mkdir -p results",
+    "clean:reports": "rm -rf test-results && mkdir -p test-results",
+    "clean:reportsWindows": "rm -rf test-results && mkdir -p test-results",
     "generate:reports": "npx ts-node ./src/helper/reportGenerator.ts",
     "pretest": "npm run clean:reports",
     "posttest": "npm run generate:reports",
@@ -28,6 +28,7 @@
     "mkdirp": "^3.0.1",
     "multiple-cucumber-html-reporter": "^3.7.0",
     "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "winston": "^3.14.2"
   }
 }

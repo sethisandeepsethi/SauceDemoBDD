@@ -11,11 +11,11 @@
         },
         "format":[
             "progress-bar",
-            "html:results/reports/cucumber-reports.html",
-            "json:results/reports/cucumber-reports.json",
+            "html:test-results/reports/cucumber-reports.html",
+            "json:test-results/reports/cucumber-reports.json",
             "rerun:@rerun.txt"
         ],
-        "parallel": 1,
+        "parallel": 3,
         "retry": 1,
         "dryRun": false
     },
@@ -29,8 +29,8 @@
             "snippetInterface": "async-await"
         },
         "format":[
-            "html:results/reports/cucumber-reports.html",
-            "json:results/reports/cucumber-reports.json",
+            "html:test-results/reports/cucumber-reports.html",
+            "json:test-results/reports/cucumber-reports.json",
             "rerun:@rerun.txt"
         ],
         "parallel": 2

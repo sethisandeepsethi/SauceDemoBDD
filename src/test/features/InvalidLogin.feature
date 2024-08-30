@@ -1,6 +1,6 @@
 Feature: Invalid login
 
-  Scenario: Username/password not matched - Error message should appear in case of invalid credentials
+  Scenario: Username or password not matched - Error message should appear in case of invalid credentials
     Given I navigated to the Sauce Demo page
     When I tried login with username "invalid" and password "invalid"
     Then I see error message containing text "Epic sadface: Username and password do not match any user in this service"

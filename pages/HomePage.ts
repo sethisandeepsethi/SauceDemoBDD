@@ -1,5 +1,6 @@
 import { Page, Locator, expect} from '@playwright/test'
 import BasePage from './BasePage'
+import { fixtures } from '../src/test/hooks/pageFixtures';
 
 export class HomePage extends BasePage{
     readonly page: Page;
@@ -26,6 +27,7 @@ export class HomePage extends BasePage{
     async fillLoginForm(userName:string, password:string) {
         await this.fillFormField(this.userNameTextBox, userName)
         await this.fillFormField(this.passwordTextBox, password)
+        fixtures.logger.info(`Clicking Login button`)
         await this.clickElement(this.loginButton);
     }
 

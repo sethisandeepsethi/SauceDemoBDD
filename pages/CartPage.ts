@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import BasePage from './BasePage';
+import { fixtures } from '../src/test/hooks/pageFixtures';
 
 export class CartPage extends BasePage{
     readonly page: Page;
@@ -30,6 +31,7 @@ export class CartPage extends BasePage{
 
     async doCheckout() {
         await this.waitForElementVisible(this.btn_Checkout)
+        fixtures.logger.info(`Clicking checkout button`)
         await this.clickElement(this.btn_Checkout);
     }
 

@@ -1,5 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
 import BasePage from './BasePage';
+import { fixtures } from '../src/test/hooks/pageFixtures';
 
 export class CustomerInfoPage extends BasePage {
     readonly page: Page;
@@ -30,6 +31,7 @@ export class CustomerInfoPage extends BasePage {
     }
 
     async doContinueToOverviewPage(){
+        fixtures.logger.info('Clicking Continue button in customer info page')
         await this.clickElement(this.btn_Continue);
     }
 

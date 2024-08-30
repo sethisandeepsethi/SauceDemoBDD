@@ -1,7 +1,7 @@
 import { Given, Then, When } from '@cucumber/cucumber'
 import { expect, Page } from '@playwright/test'
 import { HomePage } from '../../../pages/HomePage';
-import { pageFixture } from '../hooks/pageFixtures';
+import { fixtures } from '../hooks/pageFixtures';
 import { ProductsPage } from '../../../pages/ProductsPage';
 import { CartPage } from '../../../pages/CartPage';
 import { CustomerInfoPage } from '../../../pages/CustomerInfoPage';
@@ -16,8 +16,9 @@ let overviewPage: OverviewPage;
 let checkoutCompletePage: CheckoutCompletePage;
 
 Given('I navigated to the Sauce Demo page', async function () {
-    homePage = new HomePage(pageFixture.page);
+    homePage = new HomePage(fixtures.page);
     await homePage.navigateTo(process.env.BASEURL ?? 'https://www.saucedemo.com');
+    await fixtures.logger.info(`Navigated to the base url: ${process.env.BASEURL}`)
     await homePage.isAtThisPage();
 });
 
@@ -26,11 +27,12 @@ When('I tried login with username {string} and password {string}', async functio
 });
 
 Then('I see error message containing text {string}', async function (errMsg) {
-    expect(await homePage.getLoginErrorMsg()).toContain(errMsg)
+    expect(await homePage.getLoginErrorMsg()).toContain(errMsg);
+    fixtures.logger.info(`Error occured while login - ${errMsg}`);
 });
 
 Then('I navigated to Products page', async function () {
-    productsPage = new ProductsPage(pageFixture.page);
+    productsPage = new ProductsPage(fixtures.page);
     await productsPage.isAtThisPage()
 })
 
@@ -48,7 +50,7 @@ Then('Cart Item count should be {string}', async function (strCartItemCount) {
 
 When('I navigated to Cart page', async function () {
     await productsPage.gotoCartPage();
-    cartPage = new CartPage(pageFixture.page);
+    cartPage = new CartPage(fixtures.page);
     await cartPage.isAtThisPage();
 });
 
@@ -57,7 +59,7 @@ When('I perform checkout from the Cart page', async function () {
 });
 
 Then('I navigated to Customer Information page', async function () {
-    customerInfoPage = new CustomerInfoPage(pageFixture.page);
+    customerInfoPage = new CustomerInfoPage(fixtures.page);
     await customerInfoPage.isAtThisPage();
 });
 
@@ -71,7 +73,7 @@ When('I click on Continue button', async function () {
 });
 
 Then('I navigated to Overview page', async function () {
-   overviewPage = new OverviewPage(pageFixture.page);
+   overviewPage = new OverviewPage(fixtures.page);
    await overviewPage.isAtThisPage();
 });
 
@@ -84,6 +86,6 @@ Then('I see Order Successful message', async function () {
 });
 
 Then('I navigated to Checkout Complete page', async function () {
-  checkoutCompletePage = new CheckoutCompletePage(pageFixture.page);
+  checkoutCompletePage = new CheckoutCompletePage(fixtures.page);
   await checkoutCompletePage.isAtThisPage();
 })

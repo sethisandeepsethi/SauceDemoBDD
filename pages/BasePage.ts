@@ -1,4 +1,5 @@
 import { Locator, Page } from "@playwright/test";
+import { fixtures } from "../src/test/hooks/pageFixtures";
 
 export default class BasePage {
     readonly page: Page;
@@ -9,6 +10,7 @@ export default class BasePage {
 
     async navigateTo(url: string) {
         await this.page.goto(url, { waitUntil: "networkidle", timeout: 10000 });
+        fixtures.logger.info('waitForLoadState - networkidle ')
         await this.page.waitForLoadState('networkidle');
     }
 
