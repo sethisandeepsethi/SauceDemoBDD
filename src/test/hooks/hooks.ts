@@ -38,6 +38,6 @@ After(async function ({ result, pickle }) {
 })
 
 AfterAll(async function () {
-    await browser.close();
     fixtures.logger.close();
+    await browser.close();
 })

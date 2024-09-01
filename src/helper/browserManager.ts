@@ -15,6 +15,6 @@ export const invokeBrowser = () => {
         case "webkit":
             return webkit.launch(options);    
         default:
-            throw new Error('Expected browser type is not set');
+            throw new Error(`Expected browser type is not as expected: ${browserType}`);
     }
-}
+}   

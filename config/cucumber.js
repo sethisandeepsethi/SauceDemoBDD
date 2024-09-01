@@ -1,39 +1,39 @@
-{
-    "default": {
-        "important!": "We are using cucumber.js in this example!!!!",
-        "paths": ["src/test/features"],
-        "require": [
+module.exports = {
+    default: {
+        tags: process.env.npm_config_tags || "",
+        paths: ["src/test/features"],
+        require: [
             "src/test/steps/*.ts",
             "src/test/hooks/hooks.ts"
         ],
-        "requireModule": ["ts-node/register"],
-        "formatOptions": {
-            "snippetInterface": "async-await"
+        requireModule: ["ts-node/register"],
+        formatOptions: {
+            snippetInterface: "async-await"
         },
-        "format":[
+        format: [
             "progress-bar",
             "html:test-results/reports/cucumber-reports.html",
             "json:test-results/reports/cucumber-reports.json",
             "rerun:@rerun.txt"
         ],
-        "parallel": 3,
-        "retry": 1,
-        "dryRun": false
+        parallel: 3,
+        retry: 1,
+        dryRun: false
     },
-    "rerun": {
-        "require": [
+    rerun: {
+        require: [
             "src/test/steps/*.ts",
             "src/test/hooks/hooks.ts"
         ],
-        "requireModule": ["ts-node/register"],
-        "formatOptions": {
-            "snippetInterface": "async-await"
+        requireModule: ["ts-node/register"],
+        formatOptions: {
+            snippetInterface: "async-await"
         },
-        "format":[
+        format: [
             "html:test-results/reports/cucumber-reports.html",
             "json:test-results/reports/cucumber-reports.json",
             "rerun:@rerun.txt"
         ],
-        "parallel": 2
+        parallel: 2
     }
 }
