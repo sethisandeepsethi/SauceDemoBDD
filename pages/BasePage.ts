@@ -1,5 +1,5 @@
 import { Locator, Page } from "@playwright/test";
-import { fixtures } from "../src/test/hooks/pageFixtures";
+import { fixtures } from "../src/test/hooks/fixtures";
 
 export default class BasePage {
     readonly page: Page;

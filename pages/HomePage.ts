@@ -1,6 +1,6 @@
 import { Page, Locator, expect} from '@playwright/test'
 import BasePage from './BasePage'
-import { fixtures } from '../src/test/hooks/pageFixtures';
+import { fixtures } from '../src/test/hooks/fixtures';
 
 export class HomePage extends BasePage{
     readonly page: Page;

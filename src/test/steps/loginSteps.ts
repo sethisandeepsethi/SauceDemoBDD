@@ -1,7 +1,7 @@
 import { Given, Then, When } from '@cucumber/cucumber'
-import { expect, Page } from '@playwright/test'
+import { expect } from '@playwright/test'
 import { HomePage } from '../../../pages/HomePage';
-import { fixtures } from '../hooks/pageFixtures';
+import { fixtures } from '../hooks/fixtures';
 import { ProductsPage } from '../../../pages/ProductsPage';
 import { CartPage } from '../../../pages/CartPage';
 import { CustomerInfoPage } from '../../../pages/CustomerInfoPage';

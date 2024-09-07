@@ -12,8 +12,8 @@ report.generate({
     },
     device: "Local test machine",
     platform: {
-      name: "ubuntu",
-      version: "16.04",
+      name: "mac",
+      version: "Sonoma",
     },
   },
   customData: {

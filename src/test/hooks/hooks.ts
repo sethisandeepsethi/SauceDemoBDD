@@ -1,13 +1,13 @@
 import { Before, After, BeforeAll, AfterAll, Status } from '@cucumber/cucumber'
-import { Page, Browser, chromium, BrowserContext } from '@playwright/test'
-import { fixtures } from './pageFixtures'
+import { Page, Browser, BrowserContext } from '@playwright/test'
+import { fixtures } from './fixtures'
 import { invokeBrowser } from '../../helper/browserManager';
 import { getEnv } from '../../helper/env/env';
 import { createLogger } from 'winston';
 import { options } from '../../helper/logger';
 
 let browser: Browser;
-let page: Page;
+//let page: Page;
 let context: BrowserContext;
 
 BeforeAll(async function () {
@@ -28,7 +28,7 @@ After(async function ({ result, pickle }) {
     if (result?.status == Status.FAILED) {
         const img = await fixtures.page.screenshot(
             {
-                "path": `results/reports/screenshots/${pickle.name}.png`,
+                "path": `test-results/reports/screenshots/${pickle.name}.png`,
                 "type": "png"
             })
         await this.attach(img,"image/png")
