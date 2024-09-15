@@ -8,17 +8,19 @@ export default class BasePage {
         this.page = page;
     }
 
-    async navigateTo(url: string) {
+    async navigateTo(url: string): Promise<void> {
         await this.page.goto(url, { waitUntil: "networkidle", timeout: 10000 });
-        fixtures.logger.info('waitForLoadState - networkidle ')
+        fixtures.logger.info(`Navigating to URL: ${url} with waitForLoadState = networkidle`)
         await this.page.waitForLoadState('networkidle');
     }
 
-    async clickElement(element: Locator) {
-        await element.click();
+    async clickElement(element: Locator): Promise<void> {
+        await element.isVisible();
+        await element.click();  
     }
 
-    async fillFormField(element: Locator, value: string) {
+    async fillFormField(element: Locator, value: string): Promise<void> {
+        await element.isEditable();
         await element.fill(value);
     }
 
@@ -26,7 +28,7 @@ export default class BasePage {
         return await element.innerText();
     }
 
-    async waitForElementVisible(element: Locator | string) {
+    async waitForElementVisible(element: Locator | string): Promise<void> {
         if (typeof element === 'string') {
             await this.page.waitForSelector(element, { state: 'visible' });
         } else {
@@ -34,7 +36,7 @@ export default class BasePage {
         }
     }
 
-    async waitForElementHidden(element: Locator) {
+    async waitForElementHidden(element: Locator): Promise<void> {
         if (typeof element === 'string') {
             await this.page.waitForSelector(element, { state: 'hidden' });
         } else {
@@ -42,7 +44,7 @@ export default class BasePage {
         }
     }
 
-    async takeScreenshot(fileName: string) {
+    async takeScreenshot(fileName: string): Promise<void> {
         await this.page.screenshot({ path: fileName });
     }
 }

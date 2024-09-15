@@ -5,6 +5,7 @@ import { invokeBrowser } from '../../helper/browserManager';
 import { getEnv } from '../../helper/env/env';
 import { createLogger } from 'winston';
 import { options } from '../../helper/logger';
+import { PageManager } from '../../../pages/PageManager';
 
 let browser: Browser;
 //let page: Page;
@@ -21,6 +22,14 @@ Before(async function ({pickle}) {
     const page = await context.newPage();
     fixtures.page = page;
     fixtures.logger = createLogger(options(scenarioName));
+
+    this.pageManager = new PageManager(); //Ensure to initialize fixtures before reaching here
+    this.basePage = this.pageManager.getBasePage();
+    this.homePage = this.pageManager.getHomePage();
+    this.productsPage = this.pageManager.getProductsPage();
+    this.cartPage = this.pageManager.getCartPage();
+    this.customerInfoPage = this.pageManager.getCustomerInfoPage();
+    
 })
 
 After(async function ({ result, pickle }) {
