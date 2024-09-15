@@ -1,12 +1,8 @@
 import { Given, Then, When } from '@cucumber/cucumber'
 import { expect } from '@playwright/test'
 import { fixtures } from '../hooks/fixtures';
-import { OverviewPage } from '../../../pages/OverviewPage';
-import { CheckoutCompletePage } from '../../../pages/CheckoutCompletePage';
 import { CucumberWorld } from '../world/CucumberWorld';
 
-let overviewPage: OverviewPage;
-let checkoutCompletePage: CheckoutCompletePage;
 
 Given('I navigated to the Sauce Demo page', async function (this: CucumberWorld) {
     await this.homePage.navigateTo(process.env.BASEURL ?? 'https://www.saucedemo.com');
@@ -61,20 +57,18 @@ When('I click on Continue button', async function (this: CucumberWorld) {
     await this.customerInfoPage.doContinueToOverviewPage();
 });
 
-Then('I navigated to Overview page', async function () {
-   overviewPage = new OverviewPage(fixtures.page);
-   await overviewPage.isAtThisPage();
+Then('I navigated to Overview page', async function (this: CucumberWorld) {
+   await this.overviewPage.isAtThisPage();
 });
 
-When('I finish checkout in  Overview page', async function () {
-    await overviewPage.finishCheckout();
+When('I finish checkout in  Overview page', async function (this: CucumberWorld) {
+    await this.overviewPage.finishCheckout();
 });
 
-Then('I see Order Successful message', async function () {
-    await checkoutCompletePage.validateOrderSuccessMessage();
+Then('I see Order Successful message', async function (this: CucumberWorld) {
+    await this.checkoutCompletePage.validateOrderSuccessMessage();
 });
 
-Then('I navigated to Checkout Complete page', async function () {
-  checkoutCompletePage = new CheckoutCompletePage(fixtures.page);
-  await checkoutCompletePage.isAtThisPage();
+Then('I navigated to Checkout Complete page', async function (this: CucumberWorld) {
+  await this.checkoutCompletePage.isAtThisPage();
 })

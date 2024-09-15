@@ -5,6 +5,8 @@ import { HomePage } from "../../../pages/HomePage";
 import { ProductsPage } from "../../../pages/ProductsPage";
 import { CartPage } from "../../../pages/CartPage";
 import { CustomerInfoPage } from "../../../pages/CustomerInfoPage";
+import { OverviewPage } from "../../../pages/OverviewPage";
+import { CheckoutCompletePage } from "../../../pages/CheckoutCompletePage";
 
 export class CucumberWorld extends World {
 
@@ -14,6 +16,8 @@ export class CucumberWorld extends World {
     public productsPage: ProductsPage;
     public cartPage: CartPage;
     public customerInfoPage: CustomerInfoPage;
+    public overviewPage: OverviewPage;
+    public checkoutCompletePage: CheckoutCompletePage;
 
     //{ attach, log, parameters }: IWorldOptions are required in the constructor of CucumberWorld class
     //to inherit functionalities from the base World class
@@ -25,6 +29,8 @@ export class CucumberWorld extends World {
         this.productsPage = this.pageManager.getProductsPage();
         this.cartPage = this.pageManager.getCartPage();
         this.customerInfoPage = this.pageManager.getCustomerInfoPage();
+        this.overviewPage = this.pageManager.getOverviewPage();
+        this.checkoutCompletePage = this.pageManager.getCheckoutCompletePage();
     }
     
 }

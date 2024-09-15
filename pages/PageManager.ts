@@ -5,6 +5,8 @@ import { HomePage } from "./HomePage";
 import { ProductsPage } from "./ProductsPage";
 import { CartPage } from "./CartPage";
 import { CustomerInfoPage } from "./CustomerInfoPage";
+import { OverviewPage } from "./OverviewPage";
+import { CheckoutCompletePage } from "./CheckoutCompletePage";
 
 export class PageManager {
 
@@ -30,6 +32,14 @@ export class PageManager {
 
     getCustomerInfoPage(): CustomerInfoPage {
         return new CustomerInfoPage(this.getPage())
+    }
+
+    getOverviewPage(): OverviewPage {
+        return new OverviewPage(this.getPage())
+    }
+
+    getCheckoutCompletePage(): CheckoutCompletePage {
+        return new CheckoutCompletePage(this.getPage());
     }
 
 }

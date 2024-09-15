@@ -8,7 +8,7 @@
     "generate:reports": "npx ts-node ./src/helper/reportGenerator.ts",
     "pretest": "npm run clean:reports",
     "posttest": "npm run generate:reports",
-    "test": "cross-env ENV=prod FORCE_COLOR=1 cucumber-js --config=config/cucumber.js || true",
+    "test": "cross-env ENV=uat FORCE_COLOR=1 cucumber-js --config=config/cucumber.js || true",
     "execute:script:rerun": "cucumber-js -p rerun @rerun.txt",
     "test:rerun": "npm run execute:script:rerun || npm run generate:reports",
     "ZZZexecute:script": "cross-env ENV=uat cucumber-js --config=config/cucumber.js",

@@ -29,6 +29,8 @@ Before(async function ({pickle}) {
     this.productsPage = this.pageManager.getProductsPage();
     this.cartPage = this.pageManager.getCartPage();
     this.customerInfoPage = this.pageManager.getCustomerInfoPage();
+    this.overviewPage = this.pageManager.getOverviewPage();
+    this.checkoutCompletePage = this.pageManager.getCheckoutCompletePage();
     
 })
 
