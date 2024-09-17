@@ -18,7 +18,7 @@ module.exports = {
         ],
         parallel: 3,
         retry: 1,
-        dryRun: false
+        dryRun: false,
     },
     rerun: {
         require: [

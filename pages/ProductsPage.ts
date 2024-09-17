@@ -35,9 +35,12 @@ export class ProductsPage extends BasePage {
         await expect(this.btn_RemoveFromCart_FleeceJacket).toBeVisible()
     }
 
-    async getCartItemCount() {
-        await expect(this.lbl_ShoppingCartItemCountBadge).toBeVisible();
-        return await this.getElementText(this.lbl_ShoppingCartItemCountBadge);
+    async getCartItemCount(): Promise<string> {
+        if(await this.lbl_ShoppingCartItemCountBadge.isVisible()){
+            return await this.getElementText(this.lbl_ShoppingCartItemCountBadge);
+        }else {
+            return '';
+        }
     }
 
     async gotoCartPage(){

@@ -4,7 +4,7 @@ import { fixtures } from '../hooks/fixtures';
 import { CucumberWorld } from '../world/CucumberWorld';
 
 
-Given('I navigated to the Sauce Demo page', async function (this: CucumberWorld) {
+Given('I navigated to the Sauce Demo page',{timeout: 10 * 1000}, async function (this: CucumberWorld) {
     await this.homePage.navigateTo(process.env.BASEURL ?? 'https://www.saucedemo.com');
     await fixtures.logger.info(`Navigated to the base url: ${process.env.BASEURL}`)
     await this.homePage.isAtThisPage();
@@ -31,7 +31,7 @@ When('I added Fleece Jacket to cart', async function (this: CucumberWorld) {
     await this.productsPage.addFleeceJacketToCart();
 });
 
-Then('Cart Item count should be {string}', async function (strCartItemCount) {
+Then('Cart Item count should be {string}', async function (this: CucumberWorld, strCartItemCount) {
     expect(await this.productsPage.getCartItemCount()).toEqual(strCartItemCount);
 });
 

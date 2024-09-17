@@ -25,8 +25,19 @@ export class CartPage extends BasePage{
     async isBikeLightAddedToCart(){
         await expect(this.btn_RemoveFromCart_BikeLight).toBeVisible()
     }
+    
+    async removeBikeLightFromCart() {
+        await this.clickElement(this.btn_RemoveFromCart_BikeLight);
+        await expect(this.btn_RemoveFromCart_BikeLight).toBeHidden()
+    }
+
     async isFleeceJacketAddedToCart(){
         await expect(this.btn_RemoveFromCart_FleeceJacket).toBeVisible()
+    }
+
+    async removeFleeceJacketFromCart(){
+        await this.clickElement(this.btn_RemoveFromCart_FleeceJacket);
+        await expect(this.btn_RemoveFromCart_FleeceJacket).toBeHidden();
     }
 
     async doCheckout() {
