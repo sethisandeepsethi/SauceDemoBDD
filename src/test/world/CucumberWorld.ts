@@ -1,5 +1,5 @@
 import { IWorldOptions, setWorldConstructor, World } from "@cucumber/cucumber";
-import { PageManager } from "../../../pages/PageManager";
+import { PageManager } from "../../helper/PageManager";
 import BasePage from "../../../pages/BasePage";
 import { HomePage } from "../../../pages/HomePage";
 import { ProductsPage } from "../../../pages/ProductsPage";

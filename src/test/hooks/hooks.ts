@@ -1,14 +1,13 @@
-import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber'
-import { Page, Browser, BrowserContext } from '@playwright/test'
+import { Before, After, BeforeAll, AfterAll, Status } from '@cucumber/cucumber'
+import { Browser, BrowserContext } from '@playwright/test'
 import { fixtures } from './fixtures'
 import { invokeBrowser } from '../../helper/browserManager';
 import { getEnv } from '../../helper/env/env';
 import { createLogger } from 'winston';
 import { options } from '../../helper/logger';
-import { PageManager } from '../../../pages/PageManager';
+import { PageManager } from '../../helper/PageManager';
 
 let browser: Browser;
-//let page: Page;
 let context: BrowserContext;
 
 BeforeAll(async function () {

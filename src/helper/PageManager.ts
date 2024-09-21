@@ -1,12 +1,12 @@
 import { Page } from "@playwright/test";
-import { fixtures } from "../src/test/hooks/fixtures";
-import BasePage from "./BasePage";
-import { HomePage } from "./HomePage";
-import { ProductsPage } from "./ProductsPage";
-import { CartPage } from "./CartPage";
-import { CustomerInfoPage } from "./CustomerInfoPage";
-import { OverviewPage } from "./OverviewPage";
-import { CheckoutCompletePage } from "./CheckoutCompletePage";
+import { fixtures } from "../test/hooks/fixtures";
+import BasePage from "../../pages/BasePage";
+import { HomePage } from "../../pages/HomePage";
+import { ProductsPage } from "../../pages/ProductsPage";
+import { CartPage } from "../../pages/CartPage";
+import { CustomerInfoPage } from "../../pages/CustomerInfoPage";
+import { OverviewPage } from "../../pages/OverviewPage";
+import { CheckoutCompletePage } from "../../pages/CheckoutCompletePage";
 
 export class PageManager {
 
