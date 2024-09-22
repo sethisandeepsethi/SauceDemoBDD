@@ -2,10 +2,10 @@ import { Given, Then, When } from '@cucumber/cucumber'
 import { expect } from '@playwright/test'
 import { fixtures } from '../hooks/fixtures';
 import { CucumberWorld } from '../world/CucumberWorld';
-
+import config from '../../helper/env/env';
 
 Given('I navigated to the Sauce Demo page',{timeout: 10 * 1000}, async function (this: CucumberWorld) {
-    await this.homePage.navigateTo(process.env.BASEURL ?? 'https://www.saucedemo.com');
+    await this.homePage.navigateTo(config.baseurl);
     await fixtures.logger.info(`Navigated to the base url: ${process.env.BASEURL}`)
     await this.homePage.isAtThisPage();
 });

@@ -1,12 +1,15 @@
 import { chromium, firefox, LaunchOptions, webkit } from "@playwright/test";
+import config from '../helper/env/env'
 
 const options: LaunchOptions = {
-    "headless": false
+   headless: config.headless
 };
 
 export const invokeBrowser = () => {
-    const browserType = process.env.BROWSER;
+    //const browserType = process.env.BROWSER;
+    const browserType = config.browser
 
+    console.log(`>>>>>> BrowserType is: ${browserType} || Headless: ${config.headless} || options.headless=${options.headless}`)
     switch (browserType) {
         case "chrome":
             return chromium.launch(options)
