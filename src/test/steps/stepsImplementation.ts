@@ -72,3 +72,13 @@ Then('I see Order Successful message', async function (this: CucumberWorld) {
 Then('I navigated to Checkout Complete page', async function (this: CucumberWorld) {
   await this.checkoutCompletePage.isAtThisPage();
 })
+
+When('I set customer name to {string}', async function(this: CucumberWorld, customerName: string){
+    fixtures.logger.info('Setting customer name')
+    this.custName = customerName;
+});
+
+Then('I get customer name', async function(this: CucumberWorld){
+    fixtures.logger.info(`Getting customer name: ${this.custName}`);
+});
+

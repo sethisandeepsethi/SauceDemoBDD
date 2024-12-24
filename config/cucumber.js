@@ -1,10 +1,10 @@
 module.exports = {
     default: {
         tags: process.env.npm_config_tags || "",
-        paths: ["src/test/features"],
+        paths: ["src/test/features/*.*"],
         require: [
             "src/test/steps/*.ts",
-            "src/test/hooks/hooks.ts" 
+            "src/test/hooks/hooks.ts",
         ],
         requireModule: ["ts-node/register"],
         formatOptions: {
@@ -17,7 +17,7 @@ module.exports = {
             "rerun:@rerun.txt"
         ],
         parallel: 3,
-        retry: 1,
+        retry: 0,
         dryRun: false,
     },
     rerun: {

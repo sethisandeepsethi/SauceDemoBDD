@@ -18,11 +18,14 @@ export class CucumberWorld extends World {
     public customerInfoPage: CustomerInfoPage;
     public overviewPage: OverviewPage;
     public checkoutCompletePage: CheckoutCompletePage;
+    
+    public custName?: string;
 
     //{ attach, log, parameters }: IWorldOptions are required in the constructor of CucumberWorld class
     //to inherit functionalities from the base World class
-    constructor({ attach, log, parameters }: IWorldOptions){
-        super({ attach, log, parameters });
+    constructor({ attach, log, link, parameters }: IWorldOptions){
+        super({ attach, log, link, parameters });
+  
         this.pageManager = new PageManager();
         this.basePage = this.pageManager.getBasePage();
         this.homePage = this.pageManager.getHomePage();
@@ -31,8 +34,10 @@ export class CucumberWorld extends World {
         this.customerInfoPage = this.pageManager.getCustomerInfoPage();
         this.overviewPage = this.pageManager.getOverviewPage();
         this.checkoutCompletePage = this.pageManager.getCheckoutCompletePage();
+
+        this.custName = "";
     }
-    
+
 }
 
 //Tells Cucumber World to use our Custom World

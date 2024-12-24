@@ -5,6 +5,9 @@ Scenario: Validate that cart can be emptied
     When I tried login with username "standard_user" and password "secret_sauce"
     Then I navigated to Products page
 
+    When I set customer name to "Empty Cart"
+    Then I get customer name
+
     When I added Bike Light to cart
     And I added Fleece Jacket to cart
     Then Cart Item count should be '2'
