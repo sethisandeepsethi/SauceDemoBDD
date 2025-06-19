@@ -8,6 +8,10 @@ export default class BasePage {
         this.page = page;
     }
 
+    async debug(): Promise<void> {
+        await this.page.pause();
+    }
+
     async navigateTo(url: string): Promise<void> {
         await this.page.goto(url, { waitUntil: "networkidle", timeout: 10000 });
         fixtures.logger.info(`Navigating to URL: ${url} with waitForLoadState = networkidle`)
